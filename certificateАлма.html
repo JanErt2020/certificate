@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Проверка сертификата</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: #f3f5f9;
+    margin: 0;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+.search {
+    text-align: center;
+}
+
+input {
+    padding: 10px;
+    width: 250px;
+}
+
+button {
+    padding: 10px 20px;
+    background: #1e88e5;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.cert {
+    margin-top: 30px;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    display: none;
+}
+
+.title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.print {
+    margin-top: 20px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<div class="search">
+    <h2>🔍 Проверка сертификата</h2>
+    <input id="num" placeholder="Введите номер">
+    <button onclick="findCert()">Найти</button>
+</div>
+
+<div id="cert" class="cert"></div>
+
+</div>
+
+<script>
+
+/* =========================
+   📊 БАЗА УЧЕНИКОВ (ТУТ РЕДАКТИРУЕШЬ)
+   ========================= */
+
+let database = [
+    {
+        num: "7252",
+        fio: "Кенжегалиева Алма Мустаховна",
+        subjects: "Математика пәні бойынша педагогтердің құзыреттілігін инновациялық технологияларды қолдану арқылы арттыру",
+        start: "04.09.2023",
+        end: "18.09.2023",
+        hours: "80",
+        course: "Білім және жаңа инновациялық технологиялар орталығы"
+
+    },
+    {
+        num: "7252",
+        fio: "Кенжегалиева Алма Мустаховна",
+        subjects: "Математика пәні бойынша педагогтердің құзыреттілігін инновациялық технологияларды қолдану арқылы арттыру",
+        hours: "80",
+        course: "Білім және жаңа инновациялық технологиялар орталығы",
+        start: "04.09.2023",
+        end: "18.09.2023"
+        
+    }
+];
+
+/* ========================= */
+
+function findCert() {
+    let number = document.getElementById("num").value;
+
+    let cert = database.find(c => c.num === number);
+
+    if (!cert) {
+        alert("Сертификат не найден");
+        return;
+    }
+
+    document.getElementById("cert").style.display = "block";
+
+    document.getElementById("cert").innerHTML = `
+        <div class="title">СЕРТИФИКАТ</div>
+
+        <p><b>ФИО:</b> ${cert.fio}</p>
+        <p><b>Номер:</b> ${cert.num}</p>
+        <p><b>Предметы:</b> ${cert.subjects}</p>
+        <p><b>Курс:</b> ${cert.hours}</p>
+        <p><b>Курс атауы:</b> ${cert.course}</p>
+        <p><b>Курс басы:</b> ${cert.start}</p>
+        <p><b>Курс аяқталуы:</b> ${cert.end}</p>
+      
+
+        <div class="print">
+            <button onclick="printCert()">🖨 Печать / PDF</button>
+        </div>
+    `;
+}
+
+function printCert() {
+    window.print();
+}
+
+</script>
+
+</body>
+</html>

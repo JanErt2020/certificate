@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Сертификат</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f3f5f9;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Левая часть */
+        .left {
+            width: 40%;
+            background: linear-gradient(135deg, #6c7ae0, #8f94fb);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .left h1 {
+            font-size: 36px;
+        }
+
+        /* Правая часть */
+        .right {
+            width: 60%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            background: white;
+            width: 80%;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .card-header {
+            background: #1e88e5;
+            color: white;
+            padding: 20px;
+        }
+
+        .card-header h2 {
+            margin: 0;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .row {
+            margin-bottom: 10px;
+        }
+
+        .label {
+            font-weight: bold;
+        }
+
+        .value {
+            float: right;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="left">
+        <h1>Сертификатты<br>верификациялау</h1>
+    </div>
+
+    <div class="right">
+        <div class="card">
+            <div class="card-header">
+                <h2>Иванов Иван Иванович</h2>
+                <p>Сертификат № <b>12345</b></p>
+            </div>
+
+            <div class="card-body">
+
+                <div class="row clearfix">
+                    <span class="label">Учреждение:</span>
+                    <span class="value">Школа №1</span>
+                </div>
+
+                <div class="row clearfix">
+                    <span class="label">Курс:</span>
+                    <span class="value">Среднее образование</span>
+                </div>
+
+                <div class="row clearfix">
+                    <span class="label">Предметы:</span>
+                    <span class="value">Математика, Физика, Биология</span>
+                </div>
+
+                <div class="row clearfix">
+                    <span class="label">Дата начала:</span>
+                    <span class="value">01.09.2025</span>
+                </div>
+
+                <div class="row clearfix">
+                    <span class="label">Дата окончания:</span>
+                    <span class="value">31.05.2026</span>
+                </div>
+
+                <div class="row clearfix">
+                    <span class="label">Дата выдачи:</span>
+                    <span class="value">01.06.2026</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
